@@ -1,11 +1,11 @@
 [
 {
   "data":"15/11",
-  "nazwa":"Pierwsza kwadra Księżyca"
+  "nazwa":"Pierwsza kwadra Księżyca, aktywność Leoindów"
 },
 {
   "data":"16/11",
-  "nazwa":"Koniunkcja pomiędzy Marsem a Księżycem (faza:60%)"
+  "nazwa":"Koniunkcja pomiędzy Marsem a Księżycem (faza:60%), aktywność Leonidów"
 },
 {
   "data":"17/11",
@@ -14,6 +14,22 @@
 {
   "data":"18/11",
   "nazwa":"Maksimum meteorów z roju Leonidów"
+},
+{
+  "data":"19/11",
+  "nazwa":"Aktywność Leoindów"
+},
+{
+  "data":"20/11",
+  "nazwa":"Aktywność Leoindów"
+},
+{
+  "data":"21/11",
+  "nazwa":"Aktywność Leoindów"
+},
+{
+  "data":"22/11",
+  "nazwa":"Aktywność Leoindów"
 },
 {
   "data":"23/11",
@@ -32,20 +48,40 @@
   "nazwa":"Koniunkcja między Wenus a Księżycem (faza:9,7%)"
 },
 {
+  "data":"4/12",
+  "nazwa":"Aktywność Geminidów"
+},
+{
   "data":"5/12",
-  "nazwa":"Koniunkcja między Merkurym a Księżycem (faza:1,2%)"
+  "nazwa":"Koniunkcja między Merkurym a Księżycem (faza:1,2%), aktywność Geminidów"
 },
 {
   "data":"6/12",
-  "nazwa":"Bliska koniunkcja pomiędzy Księżycem a Jowiszem"
+  "nazwa":"Bliska koniunkcja pomiędzy Księżycem a Jowiszem, aktywność Geminidów"
 },
 {
   "data":"7/12",
-  "nazwa":"Bardzo bliska koniunkcja między Marsem a Neptunem"
+  "nazwa":"Bardzo bliska koniunkcja między Marsem a Neptunem, aktywność Geminidów"
+},
+{
+  "data":"8/12",
+  "nazwa":"Aktywność Geminidów"
 },
 {
   "data":"9/12",
-  "nazwa":"Koniunkcja pomiędzy Saturnem a Księżycem (faza:5%)"
+  "nazwa":"Koniunkcja pomiędzy Saturnem a Księżycem (faza:5%), aktywność Geminidów"
+},
+{
+  "data":"10/12",
+  "nazwa":"Aktywność Geminidów"
+},
+{
+  "data":"11/12",
+  "nazwa":"Aktywność Geminidów"
+},
+{
+  "data":"12/12",
+  "nazwa":"Aktywność Geminidów"
 },
 {
   "data":"13/12",
@@ -57,15 +93,47 @@
 },
 {
   "data":"15/12",
-  "nazwa":"Pierwsza kwadra Księżyca"
+  "nazwa":"Pierwsza kwadra Księżyca, aktywność Geminidów"
+},
+{
+  "data":"16/12",
+  "nazwa":"Aktywność Geminidów"
+},
+{
+  "data":"17/12",
+  "nazwa":"Aktywność Geminidów"
+},
+{
+  "data":"18/12",
+  "nazwa":"Aktywność Ursydów"
+},
+{
+  "data":"19/12",
+  "nazwa":"Aktywność Ursydów"
+},
+{
+  "data":"20/12",
+  "nazwa":"Aktywność Ursydów"
 },
 {
   "data":"21/12",
-  "nazwa":"Bliska koniunkcja pomiędzy Merkurym a Jowiszem"
+  "nazwa":"Bliska koniunkcja pomiędzy Merkurym a Jowiszem, aktywność Ursydów"
 },
 {
   "data":"22/12",
   "nazwa":"Pełnia Księżyca oraz maksimum meteorów z roju Ursydów"
+},
+{
+  "data":"23/12",
+  "nazwa":"Aktywność Ursydów"
+},
+{
+  "data":"24/12",
+  "nazwa":"Aktywność Ursydów"
+},
+{
+  "data":"25/12",
+  "nazwa":"Aktywność Ursydów"
 },
 {
   "data":"29/12",
