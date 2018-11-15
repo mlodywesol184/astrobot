@@ -1,0 +1,25 @@
+{
+  "name": "astrobot",
+  "version": "1.0.0",
+  "description": "oppis",
+  "main": "bot.js",
+  "author": "ja",
+  "license": "ISC",
+  "scripts": {
+
+    "start": "node bot.js"
+
+  },
+  "dependencies": {
+    "async-limiter": "^1.0.0",
+    "discord.js": "^11.4.2",
+    "enmap": "^4.3.3",
+    "fs": "0.0.1-security",
+    "jquery": "^3.3.1",
+    "long": "^4.0.0",
+    "prism-media": "0.0.3",
+    "snekfetch": "^4.0.4",
+    "tweetnacl": "^1.0.0",
+    "ws": "^6.1.0"
+  }
+}
