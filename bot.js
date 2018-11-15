@@ -125,7 +125,7 @@ if(message.content.startsWith(prefix))
        let data = args[0]
        let entry = plik.find(post => post.data === data);
        if(!entry) return message.channel.send("Brak zjawisk na ten dzień");
-       message.channel.send(`Dnia ${data} nastąpi ${entry.nazwa}`)
+       message.channel.send(`Dnia ${data} nastąpi: ${entry.nazwa}`)
      }
      else message.reply("Nie masz uprawnień by użyć tej komendy!")
   }
