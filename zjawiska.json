@@ -1,14 +1,75 @@
 [
 {
-  "data":"",
-  "nazwa":""
+  "data":"15/11",
+  "nazwa":"Pierwsza kwadra Księżyca"
 },
 {
-  "data":"",
-  "nazwa":""
+  "data":"16/11",
+  "nazwa":"Koniunkcja pomiędzy Marsem a Księżycem (faza:60%)"
 },
 {
-  "data":"",
-  "nazwa":""
+  "data":"17/11",
+  "nazwa":"Maksimum meteorów z roju Leonidów"
+},
+{
+  "data":"18/11",
+  "nazwa":"Maksimum meteorów z roju Leonidów"
+},
+{
+  "data":"23/11",
+  "nazwa":"Pełnia Księżyca"
+},
+{
+  "data":"27/11",
+  "nazwa":"Bliska koniunkcja pomiędzy Merkurym a Jowiszem"
+},
+{
+  "data":"30/11",
+  "nazwa":"Ostatnia kwadra Księżyca"
+},
+{
+  "data":"3/12",
+  "nazwa":"Koniunkcja między Wenus a Księżycem (faza:9,7%)"
+},
+{
+  "data":"5/12",
+  "nazwa":"Koniunkcja między Merkurym a Księżycem (faza:1,2%)"
+},
+{
+  "data":"6/12",
+  "nazwa":"Bliska koniunkcja pomiędzy Księżycem a Jowiszem"
+},
+{
+  "data":"7/12",
+  "nazwa":"Bardzo bliska koniunkcja między Marsem a Neptunem"
+},
+{
+  "data":"9/12",
+  "nazwa":"Koniunkcja pomiędzy Saturnem a Księżycem (faza:5%)"
+},
+{
+  "data":"13/12",
+  "nazwa":"Maksimum meteorów z roju Geminidów"
+},
+{
+  "data":"14/12",
+  "nazwa":"Maksimum meteorów z roju Geminidów"
+},
+{
+  "data":"15/12",
+  "nazwa":"Pierwsza kwadra Księżyca"
+},
+{
+  "data":"21/12",
+  "nazwa":"Bliska koniunkcja pomiędzy Merkurym a Jowiszem"
+},
+{
+  "data":"22/12",
+  "nazwa":"Pełnia Księżyca oraz maksimum meteorów z roju Ursydów"
+},
+{
+  "data":"29/12",
+  "nazwa":"Ostatnia Kwadra Księżyca"
 }
+
 ]
