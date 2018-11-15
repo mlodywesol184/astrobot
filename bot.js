@@ -38,7 +38,7 @@ if(message.content.startsWith(prefix))
   {
     if(message.member.roles.has(swojgosc.id) || message.member.roles.has(admin.id))
     {
-      message.channel.send("facebook link");
+      message.channel.send("Facebook Gwiazdy w Dłoniach: https://www.facebook.com/gwiazdywdloniach");
     }
     else message.reply("Nie masz uprawnień by użyć tej komendy!");
   }
@@ -47,7 +47,7 @@ if(message.content.startsWith(prefix))
   {
     if(message.member.roles.has(swojgosc.id) || message.member.roles.has(admin.id))
     {
-      message.channel.send("grupa link");
+      message.channel.send("Wpadnij na grupę Astronomia-Polska: https://www.facebook.com/groups/astronomiapolska");
     }
     else message.reply("Nie masz uprawnień by użyć tej komendy!");
   }
@@ -56,7 +56,7 @@ if(message.content.startsWith(prefix))
   {
     if(message.member.roles.has(swojgosc.id) || message.member.roles.has(admin.id))
     {
-      message.channel.send("meteo link");
+      message.channel.send("Grupa Meteorologia-Polska: https://www.facebook.com/groups/meteopolska");
     }
     else message.reply("Nie masz uprawnień by użyć tej komendy!");
   }
@@ -65,7 +65,7 @@ if(message.content.startsWith(prefix))
   {
     if(message.member.roles.has(swojgosc.id) || message.member.roles.has(admin.id))
     {
-      message.channel.send("stellarium link");
+      message.channel.send("Interaktywna mapa nieba: https://stellarium.org");
     }
     else message.reply("Nie masz uprawnień by użyć tej komendy!");
   }
@@ -74,7 +74,7 @@ if(message.content.startsWith(prefix))
   {
     if(message.member.roles.has(swojgosc.id) || message.member.roles.has(admin.id))
     {
-      message.channel.send("lpm link");
+      message.channel.send("Mapa zanieczyszczenia światłem: https://www.lightpollutionmap.info/");
     }
     else message.reply("Nie masz uprawnień by użyć tej komendy!");
   }
@@ -83,7 +83,7 @@ if(message.content.startsWith(prefix))
   {
     if(message.member.roles.has(admin.id))
     {
-      message.channel.send("swojgosc");
+      message.channel.send("Ranga Swój Gość oznacza, że jesteś zweryfikowanym użytkownikiem naszego discorda. Umożliwi Ci zmianę własnego pseudonimu, umieszczanie linków oraz załączanie plików, a także uczestnictwo w kanłach głosowych oraz korzystanie z bota.\nMożesz ją uzyskać na dwa sposoby \n 1)Wysyłając nam prywatną wiadomość na facebooku https://www.facebook.com/gwiazdywdloniach\n2)Wysyłając do kogoś z administracji prywatną wiadomość discord, z linkiem do swojego profilu na facebooku");
     }
     else message.reply("Nie masz uprawnień by użyć tej komendy!");
   }
