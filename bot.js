@@ -103,13 +103,12 @@ if(message.content.startsWith(prefix))
   {
     if(message.member.roles.has(admin.id) || message.member.roles.has(swojgosc.id))
     {
-      message.channel.send("Komenda nieaktywna, trzeba ogranąć listę zjawisk :D")
-      return
       const plik = require("./zjawiska.json");
       let dzisiaj = new Date();
       let dzien = dzisiaj.getDate();
       let miesiac = dzisiaj.getMonth()+1;
       dzisiaj = dzien + "/" + miesiac;
+      console.log(dzisiaj)
       let entry = plik.find(post => post.data === dzisiaj)
       if(!entry) return message.channel.send("Brak zjawisk na dziś :(");
       message.channel.send(`Dziś na niebie: ${entry.nazwa}`)
