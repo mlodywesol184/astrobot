@@ -99,8 +99,10 @@ if(message.content.startsWith(prefix))
   }
 
 
-  if(command === "zjawisko")
+ if(command === "zjawisko")
   {
+    if(!args)
+    {
     if(message.member.roles.has(admin.id) || message.member.roles.has(swojgosc.id))
     {
       const plik = require("./zjawiska.json");
@@ -114,7 +116,20 @@ if(message.content.startsWith(prefix))
       message.channel.send(`Dziś na niebie: ${entry.nazwa}`)
 
     }
-    else message.reply("Nie masz uprawnieńby użyć tej komendy!")
+    else message.reply("Nie masz uprawnień by użyć tej komendy!")
+  }
+  else
+  {
+    if(message.member.roles.has(admin.id) || message.member.roles.has(swojgosc.id))
+     {
+       const plik = require(".zjawiska.json");
+       let data = args[0]
+       let entry = plik.find(post => post.data === data);
+       if(!entry) return message.channel.send("Brak zjawisk na ten dzień");
+       message.channel.send(`Dnia ${data} nastąpi ${entry.nazwa}`)
+     }
+     else message.reply("Nie masz uprawnień by użyć tej komendy!")
+  }
   }
 
 
