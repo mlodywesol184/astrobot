@@ -101,28 +101,27 @@ if(message.content.startsWith(prefix))
 
  if(command === "zjawisko")
   {
-    if(!args)
+    let dzien = args[0]
+    if (!dzien)
     {
-    if(message.member.roles.has(admin.id) || message.member.roles.has(swojgosc.id))
-    {
+     if(message.member.roles.has(admin.id) || message.member.roles.has(swojgosc.id))
+     {
       const plik = require("./zjawiska.json");
       let dzisiaj = new Date();
       let dzien = dzisiaj.getDate();
       let miesiac = dzisiaj.getMonth()+1;
       dzisiaj = dzien + "/" + miesiac;
-      console.log(dzisiaj)
       let entry = plik.find(post => post.data === dzisiaj)
       if(!entry) return message.channel.send("Brak zjawisk na dziś :(");
       message.channel.send(`Dziś na niebie: ${entry.nazwa}`)
-
-    }
+     }
     else message.reply("Nie masz uprawnień by użyć tej komendy!")
   }
   else
   {
     if(message.member.roles.has(admin.id) || message.member.roles.has(swojgosc.id))
      {
-       const plik = require(".zjawiska.json");
+       const plik = require("./zjawiska.json");
        let data = args[0]
        let entry = plik.find(post => post.data === data);
        if(!entry) return message.channel.send("Brak zjawisk na ten dzień");
