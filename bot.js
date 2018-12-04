@@ -90,17 +90,18 @@ if(message.content.startsWith(prefix))
 
  if(command === "zjawisko" || command==="zjawiska")
   {
-    let dzien = args[0]
-    if (!dzien)
+    let data = args[0]
+    if (!data)
     {
      if(!message.member.roles.has(swojgosc.id)) return message.reply("Tylko użytkownicy posiadający rangę Swój gość mogą używać bota. Więcej informacji pod komendą !swojgosc")
      {
-      const plik = require("./zjawiska.json");
+      const lista = require("./zjawiska.json");
       let dzisiaj = new Date();
       let dzien = dzisiaj.getDate();
       let miesiac = dzisiaj.getMonth()+1;
-      dzisiaj = dzien + "/" + miesiac;
-      let entry = plik.find(post => post.data === dzisiaj)
+      let rok = dzisiaj.getFullYear;
+      dzisiaj = dzien + "/" + miesiac + "/" + rok;
+      let entry = lista.find(post => post.data === dzisiaj)
       if(!entry) return message.channel.send("Brak zjawisk na dziś :(");
       message.channel.send(`Dziś na niebie: ${entry.nazwa}`)
      }
