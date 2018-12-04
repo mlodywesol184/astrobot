@@ -77,7 +77,7 @@ if(message.content.startsWith(prefix))
   {
       message.channel.send("Ranga Swój Gość oznacza, że jesteś zweryfikowanym użytkownikiem naszego discorda. Umożliwi Ci zmianę własnego pseudonimu, umieszczanie linków oraz załączanie plików, a także uczestnictwo w kanłach głosowych oraz korzystanie z bota.\nMożesz ją uzyskać na dwa sposoby \n 1)Wysyłając nam prywatną wiadomość na facebooku https://www.facebook.com/gwiazdywdloniach\n2)Wysyłając do kogoś z administracji prywatną wiadomość discord, z linkiem do swojego profilu na facebooku");
   }
-  
+
   if(command === "randomuser")
   {
     if(!message.member.roles.has(swojgosc.id)) return message.reply("Tylko użytkownicy posiadający rangę Swój gość mogą używać bota. Więcej informacji pod komendą !swojgosc")
@@ -125,8 +125,9 @@ if(message.content.startsWith(prefix))
     if(!message.member.roles.has(admin.id)) return message.reply("Ta komenda jest dostępna tylko dla administratorów")
     {
       let ilosc = args[0];
-      if(!ilosc) return message.channel.send("Podaj ilość wiadomości do usunięcia")
+      if(!ilosc) return message.channel.send("Podaj ilość wiadomości do usunięcia");
       message.channel.bulkDelete(ilosc);
+    }
   }
 
 
