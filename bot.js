@@ -99,7 +99,7 @@ if(message.content.startsWith(prefix))
       let dzisiaj = new Date();
       let dzien = dzisiaj.getDate();
       let miesiac = dzisiaj.getMonth()+1;
-      let rok = dzisiaj.getFullYear;
+      let rok = dzisiaj.getFullYear();
       dzisiaj = dzien + "/" + miesiac + "/" + rok;
       let entry = lista.find(post => post.data === dzisiaj)
       if(!entry) return message.channel.send("Brak zjawisk na dziś :(");
@@ -111,7 +111,6 @@ if(message.content.startsWith(prefix))
     if(!message.member.roles.has(swojgosc.id)) return message.reply("Tylko użytkownicy posiadający rangę Swój gość mogą używać bota. Więcej informacji pod komendą !swojgosc")
      {
        const plik = require("./zjawiska.json");
-       let data = args[0]
        let entry = plik.find(post => post.data === data);
        if(!entry) return message.channel.send("Brak zjawisk na ten dzień");
        message.channel.send(`Dnia ${data} nastąpi: ${entry.nazwa}`)
