@@ -125,11 +125,11 @@ if(message.content.startsWith(prefix))
     if(!message.member.roles.has(admin.id)) return message.reply("Ta komenda jest dostępna tylko dla administratorów")
     {
       let ilosc = args[0];
-      if(!ilosc) return message.channel.send("Podaj ilość wiadomości do usunięcia");
+      if(!ilosc) return message.channel.send("Podaj ilość wiadomości do usunięcia")
       message.channel.bulkDelete(ilosc);
     }
   }
-
+}
 
 
 
