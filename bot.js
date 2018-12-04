@@ -88,7 +88,7 @@ if(message.content.startsWith(prefix))
   }
 
 
- if(command === "zjawisko" || "zjawiska")
+ if(command === "zjawisko" || command==="zjawiska")
   {
     let data = args[0]
     if (!data)
@@ -152,6 +152,5 @@ if(message.content.startsWith(prefix))
 
 
 });
-
 
 client.login(process.env.BOT_TOKEN);
