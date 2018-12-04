@@ -88,7 +88,7 @@ if(message.content.startsWith(prefix))
   }
 
 
- if(command === "zjawisko" || command==="zjawiska")
+ if(command === "zjawisko" || "zjawiska")
   {
     let data = args[0]
     if (!data)
