@@ -9,9 +9,9 @@ client.on('ready', () =>
   console.log('Bot is ready!');
 });
 
-client.on("guildMemberAdd", member => {
+client.on('guildMemberAdd', member => {
 
-  const channel =  member.guild.channel.find(ch => ch.name === "cześć");
+  const channel =  member.guild.channel.find(ch => ch.name === "czesc");
   channel.send(`Witaj na serwerze,${member}`);
 });
 
