@@ -13,6 +13,9 @@ client.on('guildMemberAdd', member => {
 
   const channel =  member.guild.channel.find(ch => ch.name === "czesc");
   channel.send(`Witaj na serwerze,${member}`);
+  
+  const czlonek = member.guild.roles.find(role => role.name === "Członek");
+  message.member.addRole(czlonek.id)
 });
 
 client.on("message", message => {
