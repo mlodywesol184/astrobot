@@ -9,14 +9,6 @@ client.on('ready', () =>
   console.log('Bot is ready!');
 });
 
-client.on('guildMemberAdd', member => {
-
-  const channel =  member.guild.channel.find(ch => ch.name === "czesc");
-  channel.send(`Witaj na serwerze,${member}`);
-  
-  const czlonek = member.guild.roles.find(role => role.name === "Członek");
-  message.member.addRole(czlonek.id)
-});
 
 client.on("message", message => {
 if(message.author.bot) return;
@@ -31,7 +23,7 @@ if(message.content.startsWith(prefix))
   {
     if(!message.member.roles.has(swojgosc.id)) return message.reply("Tylko użytkownicy posiadający rangę Swój gość mogą używać bota. Więcej informacji pod komendą !swojgosc")
     {
-      message.channel.send("Pamiętaj, by korzystać z bota musisz mieć rangę Swój Gość\nLista komend dla wszystkich:\n!help - wyświetla wszystkie komendy\n!facebook - link do facebooka GWD\n!grupa - link do grupy Astronomia Polska\n!meteo - link do grupy meteorologia-polska\n!stellarium - link do programu stellarium\n!swiatlo - link do lightpollutionmap\n!zjawisko - wyświetla dzisiejsze zjawisko astronomiczne\n   \n Komendy dla administracji:\n!swojgosc - info na temat rangi Swój Gość\n!randomuser - wybiera losowego użytkownika serwera\n!clearchannel [ilość wiadomości/max 100] - usuwa daną ilość wiadomości z kanału")
+      message.channel.send("Pamiętaj, by korzystać z bota musisz mieć rangę Swój Gość\nLista komend dla wszystkich:\n!help - wyświetla wszystkie komendy\n!facebook - link do facebooka GWD\n!grupa - link do grupy Astronomia Polska\n!meteo - link do grupy meteorologia-polska\n!stellarium - link do programu stellarium\n!swiatlo - link do lightpollutionmap\n!zjawisko - wyświetla dzisiejsze zjawisko astronomiczne\n   \n Komendy dla administracji:\n!randomuser - wybiera losowego użytkownika serwera\n!clearchannel [ilość wiadomości/max 100] - usuwa daną ilość wiadomości z kanału")
     }
   }
 
