@@ -16,6 +16,8 @@ client.on('guildMemberAdd', member => {
   if (!channel) return;
   // Send the message, mentioning the member
   channel.send(`Witaj na serwerze, ${member}`);
+  const czlonek = member.guild.roles.find(role => role.name === "Członek");
+  member.addRole(czlonek.id)
 });
 
 
