@@ -136,6 +136,18 @@ if(message.content.startsWith(prefix))
       message.channel.bulkDelete(ilosc);
     }
   }
+  
+  if(command === "ranga")
+  {
+    const kanal0 = message.guild.channels.find(ch => ch.name ==="uzyskaj rangę")
+    if(!message.channel === kanal0.id) return message.delete
+    if(message.member.roles.has(swojgosc.id) || message.member.roles.has(admin.id)) message.reply("Już posiadasz rangę Swój Gość")
+    const link = args[0]
+    const slawek = message.guild.members.find(user => user.username == "Sławomir")
+    if(!slawek.id.status === "online")
+    const kubaw = message.guild.members.find(user => user.username == "Kuba Wesolek")
+    kubaw.id.send(`gość do weryfikacji, ${link}
+  }  
 }
 
 
