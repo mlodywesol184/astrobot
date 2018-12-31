@@ -9,6 +9,15 @@ client.on('ready', () =>
   console.log('Bot is ready!');
 });
 
+client.on('guildMemberAdd', member => {
+  // Send the message to a designated channel on a server:
+  const channel = member.guild.channels.find(ch => ch.name === 'czesc');
+  // Do nothing if the channel wasn't found on this server
+  if (!channel) return;
+  // Send the message, mentioning the member
+  channel.send(`Witaj na serwerze, ${member}`);
+});
+
 
 client.on("message", message => {
 if(message.author.bot) return;
