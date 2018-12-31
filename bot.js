@@ -81,7 +81,8 @@ if(message.content.startsWith(prefix))
 
   if(command === "swojgosc")
   {
-      message.channel.send("Ranga Swój Gość oznacza, że jesteś zweryfikowanym użytkownikiem naszego discorda. Umożliwi Ci zmianę własnego pseudonimu, umieszczanie linków oraz załączanie plików, a także uczestnictwo w kanłach głosowych oraz korzystanie z bota.\nMożesz ją uzyskać na dwa sposoby \n 1)Wysyłając nam prywatną wiadomość na facebooku https://www.facebook.com/gwiazdywdloniach\n2)Wysyłając do kogoś z administracji prywatną wiadomość discord, z linkiem do swojego profilu na facebooku");
+      const kanal = message.guild.channels.find(ch => ch.name === "uzyskaj-rangę")
+      message.channel.send("Ranga Swój Gość oznacza, że jesteś zweryfikowanym użytkownikiem naszego discorda. Umożliwi Ci zmianę własnego pseudonimu, umieszczanie linków oraz załączanie plików, a także uczestnictwo w kanłach głosowych oraz korzystanie z bota.\nAby ją uzyskać, użyj komendy !ranga na kanale `${kanal});
   }
 
   if(command === "randomuser")
