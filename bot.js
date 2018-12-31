@@ -10,11 +10,8 @@ client.on('ready', () =>
 });
 
 client.on('guildMemberAdd', member => {
-  // Send the message to a designated channel on a server:
   const channel = member.guild.channels.find(ch => ch.name === 'czesc');
-  // Do nothing if the channel wasn't found on this server
   if (!channel) return;
-  // Send the message, mentioning the member
   channel.send(`Witaj na serwerze, ${member}`);
   const czlonek = member.guild.roles.find(role => role.name === "Członek");
   member.addRole(czlonek.id)
@@ -34,7 +31,9 @@ if(message.content.startsWith(prefix))
   {
     if(!message.member.roles.has(swojgosc.id)) return message.reply("Tylko użytkownicy posiadający rangę Swój gość mogą używać bota. Więcej informacji pod komendą !swojgosc")
     {
-      message.channel.send("Pamiętaj, by korzystać z bota musisz mieć rangę Swój Gość\nLista komend dla wszystkich:\n!help - wyświetla wszystkie komendy\n!facebook - link do facebooka GWD\n!grupa - link do grupy Astronomia Polska\n!meteo - link do grupy meteorologia-polska\n!stellarium - link do programu stellarium\n!swiatlo - link do lightpollutionmap\n!zjawisko - wyświetla dzisiejsze zjawisko astronomiczne\n   \n Komendy dla administracji:\n!randomuser - wybiera losowego użytkownika serwera\n!clearchannel [ilość wiadomości/max 100] - usuwa daną ilość wiadomości z kanału")
+      const kanal = message.guild.channels.find(ch =>  ch.name === "uzyskaj rangę")
+      message.channel.send(`Pamiętaj, aby korzystać z bota, musisz posiadać rangę Swój Gość (info pod komendą !ranga)\nKomendy dla wszystkich:\n!help - wyświetla listę komend oraz ich przeznaczenie\n!facebook - wyświetla link do facebooka GWD\n!grupa - wyświetla link do grupy Astronomia-Polska\n!meteo - wyświetla link do grupy meteorologia-polska\n!stellarium - link do programu stellarium\n!swiatlo - link do lightpollutionmap\n!swojgosc(dostępna dla nieposiadających tej rangi - informacje na temat rangi Swój Gość\n!randomuser - wybiera losowego użytkownika serwera\n!zjawisko - wyświetla dzisiejsze zjawisko astronomiczne\n!zjawisko [dzień/miesiac/rok] - wyświetla zjawisko na dany dzień\n!ranga [link do Twojego facebooka] - dostępna tylko na kanale ${kanal}, użyj jej jeśli chcesz uzyskać rangę Swój Gość\n\nKomendy dla administratorów:\n!clearchannel [liczba] - usuwa daną ilość wiadomości z kanału\n!ban [oznacz użytkownika] - chyba nie trzeba wyjaśniać\n!kick [oznacz użytkownka] - wyrzuca (nie banuje) danego użytkownika)
+      `)
     }
   }
 
@@ -82,7 +81,7 @@ if(message.content.startsWith(prefix))
   if(command === "swojgosc")
   {
       const kanal = message.guild.channels.find(ch => ch.name === "uzyskaj-rangę")
-      message.channel.send(`Ranga Swój Gość oznacza, że jesteś zweryfikowanym użytkownikiem naszego discorda. Umożliwi Ci zmianę własnego pseudonimu, umieszczanie linków oraz załączanie plików, a także uczestnictwo w kanłach głosowych oraz korzystanie z bota.\nAby ją uzyskać, użyj komendy !ranga na kanale ${kanal}`);
+      message.channel.send(`Ranga Swój Gość oznacza, że jesteś zweryfikowanym użytkownikiem naszego discorda. Umożliwi Ci zmianę własnego pseudonimu, umieszczanie linków oraz załączanie plików, a także uczestnictwo w kanłach głosowych oraz korzystanie z bota.\nAby ją uzyskać, użyj komendy !ranga [link do Twojego facebooka] na kanale ${kanal}`);
   }
 
   if(command === "randomuser")
@@ -136,19 +135,47 @@ if(message.content.startsWith(prefix))
       message.channel.bulkDelete(ilosc);
     }
   }
-  
+
   if(command === "ranga")
   {
-    const kanal0 = message.guild.channels.find(ch => ch.name ==="uzyskaj rangę")
-    if(!message.channel === kanal0.id) return message.delete
-    if(message.member.roles.has(swojgosc.id) || message.member.roles.has(admin.id)) message.reply("Już posiadasz rangę Swój Gość")
-    const link = args[0]
-    const slawek = message.guild.members.find(user => user.username == "Sławomir")
-    if(!slawek.id.status === "online")
-    const kubaw = message.guild.members.find(user => user.username == "Kuba Wesolek")
-    kubaw.id.send(`gość do weryfikacji, ${link}
-  }  
+    const kanal0 = message.guild.channels.find(ch => ch.name ==="uzyskaj-rangę")
+    if(message.channel === kanal0)
+	   {
+      if(message.member.roles.has(swojgosc.id)) return message.reply("Już posiadasz rangę Swój Gość")
+      const link = args[0]
+      const autor = message.author
+      const slawek = client.users.find(user => user.username == "Sławomir");
+      //if(slawek.presence.status == "online")
+	      {
+		      //slawek.send(`Gość do weryfikacji, ${link} , nick: ${autor}`);
+		      //return
+	      }
+      const kubaw = client.users.find(user => user.username == "Kuba Wesolek");
+      kubaw.send(`Gość do weryfikacji, ${link}, nick ${autor}`);
+      message.reply("Administratorzy zostali powiadomieni, niedługo otrzymasz rangę")
+	   }
+	  else
+	  {
+		  message.reply(`Proszę udać się na kanał ${kanal0}`)
+	  }
+  }
+
+  if(command==="ban")
+  {
+    if(!message.member.roles.has(admin.id)) return message.reply("Ta komenda jest dostępna tylko dla administratorów")
+    let user = message.mentions.members.first()
+    user.ban
+  }
+
+  if(command === "kick")
+  {
+    if(!message.member.roles.has(admin.id)) return message.reply("Ta komenda jest dostępna tylko dla administratorów")
+    let user = message.mentions.members.first()
+    user.kick
+  }
+
 }
+
 
 
 
