@@ -145,15 +145,23 @@ if(message.content.startsWith(prefix))
       const link = args[0]
       const autor = message.author
       const slawek = client.users.find(user => user.username == "Sławomir");
-      //if(slawek.presence.status == "online")
-	      {
-		      //slawek.send(`Gość do weryfikacji, ${link} , nick: ${autor}`);
-		      //return
-	      }
       const kubaw = client.users.find(user => user.username == "Kuba Wesolek");
+      if(kubaw.presence.status == "online)
+	 {
+	 kubaw.send(`Gość do weryfikacji, ${link} , nick: ${autor}`);
+         return
+	 }
+      if(slawek.presence.status == "online")
+	      {
+		      slawek.send(`Gość do weryfikacji, ${link} , nick: ${autor}`);
+		      return
+	      }
       kubaw.send(`Gość do weryfikacji, ${link}, nick ${autor}`);
       message.reply("Administratorzy zostali powiadomieni, niedługo otrzymasz rangę")
 	   }
+	  
+	  
+	  
 	  else
 	  {
 		  message.reply(`Proszę udać się na kanał ${kanal0}`)
