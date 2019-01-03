@@ -36,6 +36,7 @@ if(message.content.startsWith(prefix))
   {
       const kanal = message.guild.channels.find(ch => ch.name === "uzyskaj-rangę")
       message.channel.send(`Ranga Swój Gość oznacza, że jesteś zweryfikowanym użytkownikiem naszego discorda. Umożliwi Ci zmianę własnego pseudonimu, umieszczanie linków oraz załączanie plików, a także uczestnictwo w kanłach głosowych oraz korzystanie z bota.\nAby ją uzyskać, użyj komendy !ranga [link do Twojego facebooka] na kanale ${kanal}`);
+      return
   }
 
   if(command === "ranga")
@@ -70,6 +71,7 @@ if(message.content.startsWith(prefix))
 	  {
 		  message.reply(`Proszę udać się na kanał ${kanal0}`)
 	  }
+    return
   }
 
 //--------------------------------zwykłe--------------------------------------
@@ -80,40 +82,47 @@ if(message.member.roles.has(swojgosc.id))
   if(command === "help")
   {
       const kanal = message.guild.channels.find(ch =>  ch.name === "uzyskaj-rangę")
-      message.channel.send(`Pamiętaj, aby korzystać z bota, musisz posiadać rangę Swój Gość (info pod komendą !swojgosc)\nKomendy dla wszystkich:\n!help - wyświetla listę komend oraz ich przeznaczenie\n!facebook - wyświetla link do facebooka GWD\n!grupa - wyświetla link do grupy Astronomia-Polska\n!meteo - wyświetla link do grupy meteorologia-polska\n!stellarium - link do programu stellarium\n!swiatlo - link do lightpollutionmap\n!swojgosc(dostępna dla nieposiadających tej rangi) - informacje na temat rangi Swój Gość\n!randomuser - wybiera losowego użytkownika serwera\n!zjawisko - wyświetla dzisiejsze zjawisko astronomiczne\n!zjawisko [dzień/miesiac/rok] - wyświetla zjawisko na dany dzień\n!ranga [link do Twojego facebooka] - dostępna tylko na kanale ${kanal}, użyj jej jeśli chcesz uzyskać rangę Swój Gość\n\n\nKomendy dla administratorów:\n!clear [liczba] - usuwa daną ilość wiadomości z kanału\n!ban [oznacz użytkownika] - chyba nie trzeba wyjaśniać\n!kick [oznacz użytkownka] - wyrzuca (nie banuje) danego użytkownika)
+      message.channel.send(`Pamiętaj, aby korzystać z bota, musisz posiadać rangę Swój Gość (info pod komendą !swojgosc)\nKomendy dla wszystkich:\n!help - wyświetla listę komend oraz ich przeznaczenie\n!facebook - wyświetla link do facebooka GWD\n!grupa - wyświetla link do grupy Astronomia-Polska\n!meteo - wyświetla link do grupy meteorologia-polska\n!stellarium - link do programu stellarium\n!swiatlo - link do lightpollutionmap\n!swojgosc(dostępna dla nieposiadających tej rangi) - informacje na temat rangi Swój Gość\n!randomuser - wybiera losowego użytkownika serwera\n!zjawisko - wyświetla dzisiejsze zjawisko astronomiczne\n!zjawisko [dzień/miesiac/rok] - wyświetla zjawisko na dany dzień\n!ranga [link do Twojego facebooka] - dostępna tylko na kanale ${kanal}, użyj jej jeśli chcesz uzyskać rangę Swój Gość\n\nKomendy dla administratorów:\n!clearchannel [liczba] - usuwa daną ilość wiadomości z kanału\n!ban [oznacz użytkownika] - chyba nie trzeba wyjaśniać\n!kick [oznacz użytkownka] - wyrzuca (nie banuje) danego użytkownika)
       `)
+      return
   }
 
 
   if(command === "facebook")
     {
       message.channel.send("Facebook Gwiazdy w Dłoniach: https://www.facebook.com/gwiazdywdloniach");
+return
     }
 
   if(command === "grupa")
   {
       message.channel.send("Wpadnij na grupę Astronomia-Polska: https://www.facebook.com/groups/astronomiapolska");
+return
   }
 
   if(command === "meteo")
   {
       message.channel.send("Grupa Meteorologia-Polska: https://www.facebook.com/groups/meteopolska");
+return
   }
 
   if(command === "stellarium")
     {
       message.channel.send("Interaktywna mapa nieba: https://stellarium.org");
-    }
+
+  return  }
 
   if(command === "swiatlo")
   {
       message.channel.send("Mapa zanieczyszczenia światłem: https://www.lightpollutionmap.info/");
+return
   }
 
   if(command === "randomuser")
   {
       const member = message.guild.members.random()
       message.channel.send(`Wybieram ${member}!`);
+return
   }
 
 
@@ -139,6 +148,7 @@ if(message.member.roles.has(swojgosc.id))
        if(!entry) return message.channel.send("Brak zjawisk na ten dzień");
        message.channel.send(`Dnia ${data} nastąpi: ${entry.nazwa}`)
   }
+  return
   }
 
 if(command === "elon")
@@ -146,13 +156,15 @@ if(command === "elon")
   message.channel.send({
       file: "https://i.imgur.com/O0JU8mH.jpg"
   });
+  return
 }
 
 if(command === "ksiezyc")
 {
   message.channel.send({
     file: "https://i.imgur.com/jO5xbDr.jpg"
-  })
+  });
+  return
 }
 
 
@@ -174,6 +186,7 @@ if(message.member.roles.has(admin.id))
     let liczba = args [0]
     if(!liczba) return message.reply("Podaj ilość wiadomości do usunięcia")
     message.channel.bulkDelete(liczba)
+    return
   }
 
   if(command==="ban")
@@ -184,6 +197,7 @@ if(message.member.roles.has(admin.id))
    if(!member) return
    member.ban
    message.channel.send(`${member} został zbanowany, hańba Ci ${member}`)
+   return
   }
 
   if(!command==="kick")
@@ -194,6 +208,7 @@ if(message.member.roles.has(admin.id))
   if(!member) return
   member.kick
   message.channel.send(`${member} został wyrzucony, hańba Ci ${member}`)
+  return
   }
 }
 
