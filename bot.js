@@ -159,7 +159,6 @@ if(command === "ksiezyc")
  }
   else
   {
-   return
    message.reply("Tylko użytkownicy posiadający rangę Swój Gość mogą używać bota. Info pod komendą !swojgosc")
   }
 
