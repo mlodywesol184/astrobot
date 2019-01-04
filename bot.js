@@ -171,6 +171,7 @@ if(command === "piwo")
    {
     let user = message.author
     message.channel.send(`No, ${user}, też bym się napił :beer:`)
+	   return
    }
 
 
