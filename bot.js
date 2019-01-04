@@ -172,6 +172,7 @@ if(command === "ksiezyc")
   else
   {
    message.reply("Tylko użytkownicy posiadający rangę Swój Gość mogą używać bota. Info pod komendą !swojgosc")
+	  return
   }
 
 
@@ -215,6 +216,7 @@ if(message.member.roles.has(admin.id))
 else
 {
   message.reply("Ta komenda jest dostępna tylko dla adminisratorów")
+	return
 }
 
 
