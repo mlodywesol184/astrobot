@@ -25,11 +25,27 @@ client.on("message", message => {
 if(message.author.bot) return;
 if(message.content.startsWith(prefix))
 {
-  const swojgosc = message.guild.roles.find(role => role.name ==="Swój Gość");
   const admin = message.guild.roles.find(role => role.name === "*administrator*");
+  const swojgosc = message.guild.roles.find(role => role.name ==="Swój Gość");
+
+  function check (rank)
+  {
+    let result = message.member.roles.has(rank.id)
+    return result
+  }
+
+  function nope ()
+  {
+    message.reply("Tylo użytkownicy z rangą Swój Gość mogą używać bota. Info pod komendą !swojgosc")
+  }
+
+  function nopeadmin()
+  {
+    message.reply("Ta komenda jest dostępna tylko dla administratorów")
+  }
+
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-  if(!command === "swojgosc" || "facebook" || "grupa") return
 
 //-------------------------------dla nowych------------------------------------
 
@@ -77,11 +93,9 @@ if(message.content.startsWith(prefix))
 
 //--------------------------------zwykłe--------------------------------------
 
-if(message.member.roles.has(swojgosc.id))
- {
-
   if(command === "help")
   {
+    if(check(swojgosc) == false) return nope()
       const kanal = message.guild.channels.find(ch =>  ch.name === "uzyskaj-rangę")
       message.channel.send(`Pamiętaj, aby korzystać z bota, musisz posiadać rangę Swój Gość (info pod komendą !swojgosc)\nKomendy dla wszystkich:\n!help - wyświetla listę komend oraz ich przeznaczenie\n!facebook - wyświetla link do facebooka GWD\n!grupa - wyświetla link do grupy Astronomia-Polska\n!meteo - wyświetla link do grupy meteorologia-polska\n!stellarium - link do programu stellarium\n!swiatlo - link do lightpollutionmap\n!swojgosc(dostępna dla nieposiadających tej rangi) - informacje na temat rangi Swój Gość\n!randomuser - wybiera losowego użytkownika serwera\n!zjawisko - wyświetla dzisiejsze zjawisko astronomiczne\n!zjawisko [dzień/miesiac/rok] - wyświetla zjawisko na dany dzień\n!ranga [link do Twojego facebooka] - dostępna tylko na kanale ${kanal}, użyj jej jeśli chcesz uzyskać rangę Swój Gość\n\nKomendy dla administratorów:\n!clear [liczba] - usuwa daną ilość wiadomości z kanału\n!ban [oznacz użytkownika] - chyba nie trzeba wyjaśniać\n!kick [oznacz użytkownka] - wyrzuca (nie banuje) danego użytkownika)
       `)
@@ -91,36 +105,42 @@ if(message.member.roles.has(swojgosc.id))
 
   if(command === "facebook")
     {
+          if(check(swojgosc) == false) return nope()
       message.channel.send("Facebook Gwiazdy w Dłoniach: https://www.facebook.com/gwiazdywdloniach");
 return
     }
 
   if(command === "grupa")
   {
+        if(check(swojgosc) == false) return nope()
       message.channel.send("Wpadnij na grupę Astronomia-Polska: https://www.facebook.com/groups/astronomiapolska");
 return
   }
 
   if(command === "meteo")
   {
+        if(check(swojgosc) == false) return nope()
       message.channel.send("Grupa Meteorologia-Polska: https://www.facebook.com/groups/meteopolska");
 return
   }
 
   if(command === "stellarium")
     {
+          if(check(swojgosc) == false) return nope()
       message.channel.send("Interaktywna mapa nieba: https://stellarium.org");
 
   return  }
 
   if(command === "swiatlo")
   {
+        if(check(swojgosc) == false) return nope()
       message.channel.send("Mapa zanieczyszczenia światłem: https://www.lightpollutionmap.info/");
 return
   }
 
   if(command === "randomuser")
   {
+        if(check(swojgosc) == false) return nope()
       const member = message.guild.members.random()
       message.channel.send(`Wybieram ${member}!`);
 return
@@ -129,6 +149,7 @@ return
 
  if(command === "zjawisko" || command==="zjawiska")
   {
+        if(check(swojgosc) == false) return nope()
     let data = args[0]
     if (!data)
     {
@@ -154,6 +175,7 @@ return
 
 if(command === "elon")
 {
+      if(check(swojgosc) == false) return nope()
   message.channel.send({
       file: "https://i.imgur.com/O0JU8mH.jpg"
   });
@@ -162,36 +184,26 @@ if(command === "elon")
 
 if(command === "ksiezyc")
 {
+      if(check(swojgosc) == false) return nope()
   message.channel.send({
     file: "https://i.imgur.com/jO5xbDr.jpg"
   });
   return
 }
-	 
+
 if(command === "piwo")
    {
+         if(check(swojgosc) == false) return nope()
     let user = message.author
     message.channel.send(`No, ${user}, też bym się napił :beer:`)
 	   return
    }
 
 
- }
-  else
-  {
-   message.reply("Tylko użytkownicy posiadający rangę Swój Gość mogą używać bota. Info pod komendą !swojgosc")
-	  return
-  }
-
-
-
 //--------------------------dla adminów----------------------------------
-
-
-if(message.member.roles.has(admin.id))
-{
   if(command==="clear")
   {
+    if(check(admin) == false) return nopeadmin()
     let liczba = args [0]
     if(!liczba) return message.reply("Podaj ilość wiadomości do usunięcia")
     message.channel.bulkDelete(liczba)
@@ -200,6 +212,7 @@ if(message.member.roles.has(admin.id))
 
   if(command==="ban")
   {
+        if(check(admin) == false) return nopeadmin()
    let user = message.mentions.users.first()
    if (!user) return message.reply("Oznacz użytkownika, którego chcesz zbanować!")
    let member = message.guild.member(user)
@@ -211,6 +224,7 @@ if(message.member.roles.has(admin.id))
 
   if(!command==="kick")
   {
+        if(check(admin) == false) return nopeadmin()
   let user = message.mentions.users.first()
   if (!user) return message.reply("Oznacz użytkownika, którego chcesz wyrzucić!")
   let member = message.guild.member(user)
@@ -219,13 +233,6 @@ if(message.member.roles.has(admin.id))
   message.channel.send(`${member} został wyrzucony, hańba Ci ${member}`)
   return
   }
-}
-
-else
-{
-  message.reply("Ta komenda jest dostępna tylko dla adminisratorów")
-	return
-}
 
 
 
@@ -253,5 +260,4 @@ else
 
 
 });
-
 client.login(process.env.BOT_TOKEN);
