@@ -29,7 +29,7 @@ if(message.content.startsWith(prefix))
   const admin = message.guild.roles.find(role => role.name === "*administrator*");
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-  if(!command === "swojgosc" || "facebook" || "grupa")
+  if(!command === "swojgosc" || "facebook" || "grupa") return
 
 //-------------------------------dla nowych------------------------------------
 
