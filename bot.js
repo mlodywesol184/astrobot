@@ -191,9 +191,9 @@ if(command === "ksiezyc")
   return
 }
 
-if(command === "piwo")
+if(message.content.includes("piwo"))
    {
-         if(check(swojgosc) == false) return nope()
+
     let user = message.author
     message.channel.send(`No, ${user}, też bym się napił :beer:`)
 	   return
