@@ -23,6 +23,15 @@ client.on('guildMemberAdd', member => {
 
 client.on("message", message => {
 if(message.author.bot) return;
+	
+if(message.content.includes("piwo"))
+   {
+
+    let user = message.author
+    message.channel.send(`No, ${user}, też bym się napił :beer:`)
+	   return
+   }
+
 if(message.content.startsWith(prefix))
 {
   const admin = message.guild.roles.find(role => role.name === "*administrator*");
@@ -190,14 +199,6 @@ if(command === "ksiezyc")
   });
   return
 }
-
-if(message.content.includes("piwo"))
-   {
-
-    let user = message.author
-    message.channel.send(`No, ${user}, też bym się napił :beer:`)
-	   return
-   }
 
 
 //--------------------------dla adminów----------------------------------
