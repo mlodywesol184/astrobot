@@ -24,7 +24,7 @@ client.on('guildMemberAdd', member => {
 client.on("message", message => {
 if(message.author.bot) return;
 	
-if(message.content.includes("piwo"))
+if(message.content.includes("piwo" || "Piwo"))
    {
 
     let user = message.author
