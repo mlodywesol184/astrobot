@@ -61,7 +61,7 @@ if(message.content.startsWith(prefix))
   if(command === "swojgosc")
   {
       const kanal = message.guild.channels.find(ch => ch.name === "uzyskaj-rangę")
-      message.channel.send(`Ranga Swój Gość oznacza, że jesteś zweryfikowanym użytkownikiem naszego discorda. Umożliwi Ci zmianę własnego pseudonimu, umieszczanie linków oraz załączanie plików, a także uczestnictwo w kanłach głosowych oraz korzystanie z bota.\nAby ją uzyskać, użyj komendy !ranga [link do Twojego facebooka] na kanale ${kanal}`);
+      message.channel.send(`Ranga Swój Gość oznacza, że jesteś zweryfikowanym użytkownikiem naszego discorda. Umożliwi Ci zmianę własnego pseudonimu, umieszczanie linków oraz załączanie plików, a także uczestnictwo w kanłach głosowych oraz korzystanie z bota.\nAby ją uzyskać, użyj komendy !ranga na kanale ${kanal}`);
       return
   }
 
@@ -71,23 +71,22 @@ if(message.content.startsWith(prefix))
     if(message.channel === kanal0)
 	   {
       if(message.member.roles.has(swojgosc.id)) return message.reply("Już posiadasz rangę Swój Gość")
-      const link = args[0]
       const autor = message.author
       const slawek = client.users.find(user => user.username == "Sławomir");
       const kubaw = client.users.find(user => user.username == "Kuba Wesolek");
       if(kubaw.presence.status == "online")
 	 {
-	 kubaw.send(`Gość do weryfikacji, ${link} , nick: ${autor}`);
+	 kubaw.send(`Gość do weryfikacji, nick: ${autor}`);
    message.reply("Administratorzy zostali powiadomieni, niedługo otrzymasz rangę")
          return
 	 }
       if(slawek.presence.status == "online")
 	      {
-		      slawek.send(`Gość do weryfikacji, ${link} , nick: ${autor}`);
+		      slawek.send(`Gość do weryfikacji, nick: ${autor}`);
           message.reply("Administratorzy zostali powiadomieni, niedługo otrzymasz rangę")
 		      return
 	      }
-      kubaw.send(`Gość do weryfikacji, ${link}, nick ${autor}`);
+      kubaw.send(`Gość do weryfikacji, nick ${autor}`);
       message.reply("Administratorzy zostali powiadomieni, niedługo otrzymasz rangę")
 	   }
 
