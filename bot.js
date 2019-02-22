@@ -36,6 +36,7 @@ if(message.content.startsWith(prefix))
 {
   const admin = message.guild.roles.find(role => role.name === "*administrator*");
   const swojgosc = message.guild.roles.find(role => role.name ==="Swój Gość");
+  const mod = message.guild.roles.find(role =>.name==="Moderator");
 
   function check (rank)
   {
@@ -203,7 +204,7 @@ if(command === "ksiezyc")
 //--------------------------dla adminów----------------------------------
   if(command==="clear")
   {
-    if(check(admin) == false) return nopeadmin()
+    if(check(mod) == false) return nopeadmin()
     let liczba = args [0]
     if(!liczba) return message.reply("Podaj ilość wiadomości do usunięcia")
     message.channel.bulkDelete(liczba)
@@ -224,7 +225,7 @@ if(command === "ksiezyc")
 
   if(!command==="kick")
   {
-        if(check(admin) == false) return nopeadmin()
+        if(check(mod) == false) return nopeadmin()
   let user = message.mentions.users.first()
   if (!user) return message.reply("Oznacz użytkownika, którego chcesz wyrzucić!")
   let member = message.guild.member(user)
