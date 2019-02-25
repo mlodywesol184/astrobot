@@ -96,6 +96,10 @@ if(message.content.startsWith(prefix))
 	  else
 	  {
 		  message.reply(`Proszę udać się na kanał ${kanal0}`)
+		  message.delete(5000)
+		  .then(msg => {
+    msg.delete(5000)
+  })
 	  }
     return
   }
