@@ -95,7 +95,7 @@ if(message.content.startsWith(prefix))
 
 	  else
 	  {
-		message.reply(`Proszę udać się na kanał ${kanalsg})`  
+		message.reply(`Proszę udać się na kanał ${kanalsg}`)  
 
 	  }
     return
