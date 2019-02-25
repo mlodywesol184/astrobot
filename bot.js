@@ -47,7 +47,7 @@ if(message.content.startsWith(prefix))
 
   function nope ()
   {
-    message.reply(`Tylo użytkownicy z rangą Swój Gość mogą używać bota. Aby uzyskać te rangę, użyj komendy !ranga na kanale ${kanalsg}`)
+    message.reply(`Tylko użytkownicy z rangą Swój Gość mogą używać bota. Aby uzyskać tę rangę, użyj komendy !ranga na kanale ${kanalsg}`)
   }
 
   function nopeadmin()
