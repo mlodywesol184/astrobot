@@ -36,7 +36,8 @@ if(message.content.startsWith(prefix))
 {
   const admin = message.guild.roles.find(role => role.name === "*administrator*");
   const swojgosc = message.guild.roles.find(role => role.name ==="Swój Gość");
-  const mod = message.guild.roles.find(role =>.name==="Moderator");
+  const mod = message.guild.roles.find(role =>role.name==="Moderator");
+  const kanalsg = message.guild.channels.find(ch => ch.name === "uzyskaj-rangę")
 
   function check (rank)
   {
@@ -46,7 +47,7 @@ if(message.content.startsWith(prefix))
 
   function nope ()
   {
-    message.reply("Tylo użytkownicy z rangą Swój Gość mogą używać bota. Info pod komendą !swojgosc")
+    message.reply(`Tylo użytkownicy z rangą Swój Gość mogą używać bota. Aby uzyskać te rangę, użyj komendy !ranga na kanale ${kanalsg}`)
   }
 
   function nopeadmin()
@@ -61,8 +62,7 @@ if(message.content.startsWith(prefix))
 
   if(command === "swojgosc")
   {
-      const kanal = message.guild.channels.find(ch => ch.name === "uzyskaj-rangę")
-      message.channel.send(`Ranga Swój Gość oznacza, że jesteś zweryfikowanym użytkownikiem naszego discorda. Umożliwi Ci zmianę własnego pseudonimu, umieszczanie linków oraz załączanie plików, a także uczestnictwo w kanłach głosowych oraz korzystanie z bota.\nAby ją uzyskać, użyj komendy !ranga na kanale ${kanal}`);
+      message.channel.send(`Ranga Swój Gość oznacza, że jesteś zweryfikowanym użytkownikiem naszego discorda. Umożliwi Ci zmianę własnego pseudonimu, umieszczanie linków oraz załączanie plików, a także uczestnictwo w kanłach głosowych oraz korzystanie z bota.\nAby ją uzyskać, użyj komendy !ranga na kanale ${kanalsg}`);
       return
   }
 
