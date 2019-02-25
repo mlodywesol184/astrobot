@@ -95,11 +95,8 @@ if(message.content.startsWith(prefix))
 
 	  else
 	  {
-		  message.reply('Invalid command')
-  .then(msg => {
-    msg.delete(10000)
-  })
-  })
+		message.reply(`Proszę udać się na kanał ${kanalsg}`  
+
 	  }
     return
   }
