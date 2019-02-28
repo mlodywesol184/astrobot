@@ -13,8 +13,8 @@ client.on('ready', () =>
 
 client.on('guildMemberAdd', member => {
   const channel = member.guild.channels.find(ch => ch.name === 'cześć');
-  const ogloszenia = member.guild.channels.find(ch => ch.name ==="ogłoszenia");
-  channel.send(`Witaj na serwerze, ${member}. Zapoznaj się z kanałem ${ogloszenia}`);
+  const info = member.guild.channels.find(ch => ch.name ==="informacje-i-regulamin");
+  channel.send(`Witaj na serwerze, ${member}. Zapoznaj się z kanałem ${info}`);
   const czlonek = member.guild.roles.find(role => role.name === "Członek");
   member.addRole(czlonek.id)
 });
