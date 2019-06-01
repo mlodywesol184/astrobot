@@ -195,8 +195,19 @@ if(command === "elon")
 if(command === "ksiezyc")
 {
       if(check(swojgosc) == false) return nope()
-  message.channel.send({
+  message.channel.send
+  ({
     file: "https://i.imgur.com/jO5xbDr.jpg"
+  });
+  return
+}
+
+if(command === "gej")
+{
+ if(check(swojgosc) == false) return nope()
+  message.channel.send
+  ({
+    file: "https://i.imgur.com/PPQAuES.jpg"
   });
   return
 }
