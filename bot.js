@@ -227,7 +227,17 @@ if(command === "krzych")
  if(check(swojgosc) == false) return nope()
   message.channel.send
   ({
-    file: "https://i.imgur.com/dluMsVl.png"
+    file: "https://i.imgur.com/0Rittj7.png"
+  });
+  return
+}
+	
+if(command === "romans")
+{
+ if(check(swojgosc) == false) return nope()
+  message.channel.send
+  ({
+    file: "https://i.imgur.com/NWZ0muL.jpg"
   });
   return
 }
