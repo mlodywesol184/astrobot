@@ -211,6 +211,16 @@ if(command === "gej")
   });
   return
 }
+	
+if(command === "siostra")
+{
+ if(check(swojgosc) == false) return nope()
+  message.channel.send
+  ({
+    file: "https://i.imgur.com/nOPLJYh.jpg"
+  });
+  return
+}
 
 
 //--------------------------dla adminów----------------------------------
