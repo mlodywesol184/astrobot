@@ -221,6 +221,16 @@ if(command === "siostra")
   });
   return
 }
+	
+if(command === "krzych")
+{
+ if(check(swojgosc) == false) return nope()
+  message.channel.send
+  ({
+    file: "https://i.imgur.com/dluMsVl.png"
+  });
+  return
+}
 
 
 //--------------------------dla adminów----------------------------------
