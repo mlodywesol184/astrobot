@@ -241,6 +241,16 @@ if(command === "romans")
   });
   return
 }
+	
+if(command === "seba")
+{
+ if(check(swojgosc) == false) return nope()
+ const lista = require("./seba.json");
+ let output = lista[Math.floor(Math.random()*lista.length)]
+ message.channel.send(output)
+  return
+}
+
 
 
 //--------------------------dla adminów----------------------------------
