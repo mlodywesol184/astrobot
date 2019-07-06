@@ -250,6 +250,16 @@ if(command === "seba")
  message.channel.send(output.link)
   return
 }
+	
+if(command === "gosciu")
+{
+ if(check(swojgosc) == false) return nope()
+  message.channel.send
+  ({
+    file: "https://i.imgur.com/ShADp9S.jpg"
+  });
+  return
+}
 
 
 
