@@ -23,7 +23,7 @@ client.on('guildMemberAdd', member => {
 
 client.on("message", message => {
 if(message.author.bot) return;
-	
+
 if(message.content.includes("piwo" || "Piwo"))
    {
 
@@ -95,7 +95,7 @@ if(message.content.startsWith(prefix))
 
 	  else
 	  {
-		message.reply(`Proszę udać się na kanał ${kanalsg}`)  
+		message.reply(`Proszę udać się na kanał ${kanalsg}`)
 
 	  }
     return
@@ -211,7 +211,7 @@ if(command === "gej")
   });
   return
 }
-	
+
 if(command === "siostra")
 {
  if(check(swojgosc) == false) return nope()
@@ -221,7 +221,7 @@ if(command === "siostra")
   });
   return
 }
-	
+
 if(command === "krzych")
 {
  if(check(swojgosc) == false) return nope()
@@ -231,7 +231,7 @@ if(command === "krzych")
   });
   return
 }
-	
+
 if(command === "romans")
 {
  if(check(swojgosc) == false) return nope()
@@ -241,13 +241,13 @@ if(command === "romans")
   });
   return
 }
-	
+
 if(command === "seba")
 {
  if(check(swojgosc) == false) return nope()
  const lista = require("./seba.json");
- let output = lista[Math.floor(Math.random()*lista.length)]
- message.channel.send(output)
+ let output = lista[Math.floor(Math.random() * lista.length)]
+ message.channel.send(output.link)
   return
 }
 
