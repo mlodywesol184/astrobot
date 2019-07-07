@@ -261,7 +261,7 @@ if(command === "gosciu")
   return
 }
 
-if(command === "papiez")
+if(command === "papiez" || "rzulta" || "rzultamorda")
 {
  if(check(swojgosc) == false) return nope()
   message.channel.send
