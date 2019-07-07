@@ -261,6 +261,16 @@ if(command === "gosciu")
   return
 }
 
+if(command === "papiez")
+{
+ if(check(swojgosc) == false) return nope()
+  message.channel.send
+  ({
+    file: "https://i.imgur.com/gk9ymVC.jpg"
+  });
+  return
+}
+
 
 
 //--------------------------dla adminów----------------------------------
