@@ -218,11 +218,12 @@ if(command==="add")
 
   let stara = komendy.find(post => post.nazwa === nazwa)
   if(stara) return message.reply("Taka komenda już istnieje")
-	
+
   if(!nazwa) return message.reply("Podaj nazwę dla nowej komendy")
   if(!link) return message.reply("Podaj treść/link komendy")
   if(!perm) return message.reply("Zdefiniuj uprawnienia potrzebne do wywołania komendy [swojgosc/mod/admin]")
-
+  if((link.endsWith(".png")) || (link.endsWith(".jpg")) || (link.endsWith(".jpeg")))
+  {
   if(args[2] === "admin")
   {
     if(check(admin)==false) return message.reply("Nie możesz zarządzać komendami przeznaczonymi dla administratorów!")
@@ -246,7 +247,8 @@ if(command==="add")
     }
     else return message.reply("Nieprawidłowe polecenie")
 
-
+}
+else message.reply("Podaj właściwy link")
 }
 
 if (command==="delete")
