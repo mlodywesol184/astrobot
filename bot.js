@@ -215,7 +215,6 @@ if(command==="add")
   let nazwa = args[0]
   let link = args[1]
   let perm = args[2]
-  let typ = args [3]
 
   let stara = komendy.find(post => post.nazwa === nazwa)
   if(stara) return message.reply("Taka komenda już istnieje")
@@ -223,7 +222,6 @@ if(command==="add")
   if(!nazwa) return message.reply("Podaj nazwę dla nowej komendy")
   if(!link) return message.reply("Podaj treść/link komendy")
   if(!perm) return message.reply("Zdefiniuj uprawnienia potrzebne do wywołania komendy [swojgosc/mod/admin]")
-  if(!typ) {typ="normal"}
 
   if(args[2] === "admin")
   {
@@ -232,9 +230,8 @@ if(command==="add")
 
   if((perm==="swojgosc") || (perm==="mod") || (perm==="admin") )
   {
-    if((typ==="normal") || (typ==="obrazek"))
-    {
-      komendy.push({"typ":typ, "nazwa":nazwa, "link":link, "permission":perm})
+
+      komendy.push({"typ":"obrazek", "nazwa":nazwa, "link":link, "permission":perm})
       const jsonString = JSON.stringify(komendy)
       fs.writeFile('./komendy.json', jsonString, err => {
           if (err) {
@@ -248,8 +245,6 @@ if(command==="add")
 
     }
     else return message.reply("Nieprawidłowe polecenie")
-  }
-  else return message.reply("Nieprawidłowe polecenie")
 
 
 }
