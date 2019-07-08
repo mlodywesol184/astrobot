@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const prefix = "!"
 const fs = require("fs");
+let komendy = require("./komendy.json")
 
 const client = new Discord.Client();
 
@@ -23,6 +24,7 @@ client.on('guildMemberAdd', member => {
 
 client.on("message", message => {
 if(message.author.bot) return;
+
 
 if(message.content.includes("piwo" || "Piwo"))
    {
@@ -47,16 +49,36 @@ if(message.content.startsWith(prefix))
 
   function nope ()
   {
-    message.reply(`Tylko użytkownicy z rangą Swój Gość mogą używać bota. Aby uzyskać tę rangę, użyj komendy !ranga na kanale ${kanalsg}`)
-  }
-
-  function nopeadmin()
-  {
-    message.reply("Ta komenda jest dostępna tylko dla administratorów")
+    message.reply("nie masz wystarczających uprawnień aby użyć tej komendy")
   }
 
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
+
+ function sendpic ()
+ {
+   message.channel.send(({file: komenda.link}))
+ }
+
+ function sendnormal ()
+ {
+   message.channel.send(komenda.link)
+ }
+
+
+
+
+let entrynazwa = command
+let komenda = komendy.find(post => post.nazwa === entrynazwa)
+if(komenda)
+{
+ if(komenda.permission === "anyone") { message.channel.send(komenda.link); return}
+ if(komenda.permission === "admin") {if(check(admin) == false) return nope()}
+ if(komenda.permission === "mod") {if(check(mod) == false) return nope()}
+ if(komenda.permission === "swojgosc") {if(check(swojgosc) == false) return nope()}
+ if(komenda.typ === "obrazek") sendpic()
+ if(komenda.typ === "normal") sendnormal()
+}
 
 //-------------------------------dla nowych------------------------------------
 
@@ -103,50 +125,6 @@ if(message.content.startsWith(prefix))
 
 //--------------------------------zwykłe--------------------------------------
 
-  if(command === "help")
-  {
-    if(check(swojgosc) == false) return nope()
-      const kanal = message.guild.channels.find(ch =>  ch.name === "uzyskaj-rangę")
-      message.channel.send(`Pamiętaj, aby korzystać z bota, musisz posiadać rangę Swój Gość (info pod komendą !swojgosc)\nKomendy dla wszystkich:\n!help - wyświetla listę komend oraz ich przeznaczenie\n!facebook - wyświetla link do facebooka GWD\n!grupa - wyświetla link do grupy Astronomia-Polska\n!meteo - wyświetla link do grupy meteorologia-polska\n!stellarium - link do programu stellarium\n!swiatlo - link do lightpollutionmap\n!swojgosc(dostępna dla nieposiadających tej rangi) - informacje na temat rangi Swój Gość\n!randomuser - wybiera losowego użytkownika serwera\n!zjawisko - wyświetla dzisiejsze zjawisko astronomiczne\n!zjawisko [dzień/miesiac/rok] - wyświetla zjawisko na dany dzień\n!ranga [link do Twojego facebooka] - dostępna tylko na kanale ${kanal}, użyj jej jeśli chcesz uzyskać rangę Swój Gość\n\nKomendy dla administratorów:\n!clear [liczba] - usuwa daną ilość wiadomości z kanału\n!ban [oznacz użytkownika] - chyba nie trzeba wyjaśniać\n!kick [oznacz użytkownka] - wyrzuca (nie banuje) danego użytkownika)
-      `)
-      return
-  }
-
-
-  if(command === "facebook")
-    {
-          if(check(swojgosc) == false) return nope()
-      message.channel.send("Facebook Gwiazdy w Dłoniach: https://www.facebook.com/gwiazdywdloniach");
-return
-    }
-
-  if(command === "grupa")
-  {
-        if(check(swojgosc) == false) return nope()
-      message.channel.send("Wpadnij na grupę Astronomia-Polska: https://www.facebook.com/groups/astronomiapolska");
-return
-  }
-
-  if(command === "meteo")
-  {
-        if(check(swojgosc) == false) return nope()
-      message.channel.send("Grupa Meteorologia-Polska: https://www.facebook.com/groups/meteopolska");
-return
-  }
-
-  if(command === "stellarium")
-    {
-          if(check(swojgosc) == false) return nope()
-      message.channel.send("Interaktywna mapa nieba: https://stellarium.org");
-
-  return  }
-
-  if(command === "swiatlo")
-  {
-        if(check(swojgosc) == false) return nope()
-      message.channel.send("Mapa zanieczyszczenia światłem: https://www.lightpollutionmap.info/");
-return
-  }
 
   if(command === "randomuser")
   {
@@ -157,7 +135,9 @@ return
   }
 
 
- if(command === "zjawisko" || command==="zjawiska")
+
+
+   if(command === "zjawisko" || command==="zjawiska")
   {
         if(check(swojgosc) == false) return nope()
     let data = args[0]
@@ -183,109 +163,29 @@ return
   return
   }
 
-if(command === "elon")
-{
-      if(check(swojgosc) == false) return nope()
-  message.channel.send({
-      file: "https://i.imgur.com/O0JU8mH.jpg"
-  });
-  return
-}
-
-if(command === "ksiezyc")
-{
-      if(check(swojgosc) == false) return nope()
-  message.channel.send
-  ({
-    file: "https://i.imgur.com/jO5xbDr.jpg"
-  });
-  return
-}
-
-if(command === "gej")
-{
- if(check(swojgosc) == false) return nope()
-  message.channel.send
-  ({
-    file: "https://i.imgur.com/PPQAuES.jpg"
-  });
-  return
-}
-
-if(command === "siostra")
-{
- if(check(swojgosc) == false) return nope()
-  message.channel.send
-  ({
-    file: "https://i.imgur.com/nOPLJYh.jpg"
-  });
-  return
-}
-
-if(command === "krzych")
-{
- if(check(swojgosc) == false) return nope()
-  message.channel.send
-  ({
-    file: "https://i.imgur.com/0Rittj7.png"
-  });
-  return
-}
-
-if(command === "romans")
-{
- if(check(swojgosc) == false) return nope()
-  message.channel.send
-  ({
-    file: "https://i.imgur.com/NWZ0muL.jpg"
-  });
-  return
-}
 
 if(command === "seba")
 {
  if(check(swojgosc) == false) return nope()
  const lista = require("./seba.json");
  let output = lista[Math.floor(Math.random() * lista.length)]
- message.channel.send(output.link)
+ message.channel.send(({file: output.link}))
   return
 }
-	
-if(command === "gosciu")
-{
- if(check(swojgosc) == false) return nope()
-  message.channel.send
-  ({
-    file: "https://i.imgur.com/ShADp9S.jpg"
-  });
-  return
-}
-
-if(command === "papiez" || "rzulta" || "rzultamorda")
-{
- if(check(swojgosc) == false) return nope()
-  message.channel.send
-  ({
-    file: "https://i.imgur.com/gk9ymVC.jpg"
-  });
-  return
-}
-
 
 
 //--------------------------dla adminów----------------------------------
   if(command==="clear")
   {
-    if(check(mod) == false) return nopeadmin()
+    if(check(mod) == false) return nope()
     let liczba = args [0]
     if(!liczba) return message.reply("Podaj ilość wiadomości do usunięcia")
     message.channel.bulkDelete(liczba)
     return
   }
-
   if(command==="ban")
   {
-        if(check(admin) == false) return nopeadmin()
+  if(check(admin) == false) return nope()
    let user = message.mentions.users.first()
    if (!user) return message.reply("Oznacz użytkownika, którego chcesz zbanować!")
    let member = message.guild.member(user)
@@ -295,41 +195,86 @@ if(command === "papiez" || "rzulta" || "rzultamorda")
    return
   }
 
-  if(!command==="kick")
+
+  if(command==="kick")
   {
-        if(check(mod) == false) return nopeadmin()
-  let user = message.mentions.users.first()
-  if (!user) return message.reply("Oznacz użytkownika, którego chcesz wyrzucić!")
-  let member = message.guild.member(user)
-  if(!member) return
-  member.kick
-  message.channel.send(`${member} został wyrzucony, hańba Ci ${member}`)
-  return
+   if(check(mod) == false) return nope()
+   let user = message.mentions.users.first()
+   if (!user) return message.reply("Oznacz użytkownika, którego chcesz wyrzucić!")
+   let member = message.guild.member(user)
+   if(!member) return
+   member.kick
+   message.channel.send(`${member} został wyrzucony, hańba Ci ${member}`)
+   return
   }
 
 
+if(command==="add")
+{
+  if(check(mod) == false) return nope()
+  let nazwa = args[0]
+  let link = args[1]
+  let perm = args[2]
+  let typ = args [3]
+
+  let stara = komendy.find(post => post.nazwa === nazwa)
+  if(stara) return message.reply("Taka komenda już istnieje")
+
+  if(!nazwa) return message.reply("Podaj nazwę dla nowej komendy")
+  if(!link) return message.reply("Podaj treść/link komendy")
+  if(!perm) return message.reply("Zdefiniuj uprawnienia potrzebne do wywołania komendy [swojgosc/mod/admin]")
+  if(!typ) {typ="normal"}
 
 
+  if((perm==="swojgosc") || (perm==="mod") || (perm==="admin") )
+  {
+    if((typ==="normal") || (typ==="obrazek"))
+    {
+      komendy.push({"typ":typ, "nazwa":nazwa, "link":link, "permission":perm})
+      const jsonString = JSON.stringify(komendy)
+      fs.writeFile('./komendy.json', jsonString, err => {
+          if (err) {
+              console.log('Error writing file', err)
+          } else {
+              console.log('Successfully wrote file')
+          }
+      })
+      message.channel.send(`Dodano komendę ${nazwa}`)
 
 
+    }
+    else return message.reply("Nieprawidłowe polecenie")
+  }
+  else return message.reply("Nieprawidłowe polecenie")
 
 
+}
 
-
-
-
+if (command==="delete")
+{
+  if(check(mod) == false) return nope()
+  let nazwa = args[0]
+  if(!nazwa) return message.reply("Podaj nazwę komendy do usunięcia")
+  let komenda = komendy.find(post => post.nazwa === nazwa)
+  delete komenda.link
+  delete komenda.typ
+  delete komenda.nazwa
+  delete komenda.permission
+  const jsonString = JSON.stringify(komendy)
+  fs.writeFile('./komendy.json', jsonString, err => {
+      if (err) {
+          console.log('Error writing file', err)
+      } else {
+          console.log('Successfully wrote file')
+      }
+  })
+  message.channel.send(`Usunięto komendę ${nazwa}`)
 }
 
 
 
 
-
-
-
-
-
-
-
+}
 
 
 });
