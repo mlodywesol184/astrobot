@@ -15,7 +15,7 @@
     "discord.js": "^11.4.2",
     "enmap": "^4.3.3",
     "fs": "0.0.1-security",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "long": "^4.0.0",
     "prism-media": "0.0.3",
     "snekfetch": "^4.0.4",
